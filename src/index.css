@@ -1,0 +1,352 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* KaamKaro light olive directory theme */
+:root {
+  --kp-paper: #fbfcf7;
+  --kp-paper-deep: #f1f5e5;
+  --kp-card: #ffffff;
+  --kp-ink: #293328;
+  --kp-muted: #727c6a;
+  --kp-rule: #dfe5d4;
+  --kp-olive: #dcecb6;
+  --kp-olive-deep: #82945d;
+  --kp-good: #5f7c50;
+  --kp-shadow-sm: 0 2px 8px rgb(41 51 40 / 5%);
+  --kp-shadow-md: 0 18px 45px rgb(41 51 40 / 9%);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgb(220 236 182 / 42%), transparent 28rem),
+    radial-gradient(circle at 94% 18%, rgb(220 236 182 / 18%), transparent 25rem),
+    var(--kp-paper);
+  color: var(--kp-ink);
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.bg-slate-50 {
+  background-color: transparent !important;
+}
+
+.bg-white {
+  background-color: rgb(255 255 255 / 88%) !important;
+  box-shadow: var(--kp-shadow-sm);
+}
+
+.bg-slate-900 {
+  background-color: var(--kp-ink) !important;
+}
+
+.bg-orange-400,
+.bg-orange-500,
+.bg-orange-600 {
+  background-color: var(--kp-olive) !important;
+  color: var(--kp-ink) !important;
+}
+
+.bg-emerald-500,
+.bg-emerald-600 {
+  background-color: var(--kp-good) !important;
+}
+
+.text-slate-900,
+.text-slate-800,
+.text-slate-700 {
+  color: var(--kp-ink) !important;
+}
+
+.text-slate-600,
+.text-slate-500,
+.text-slate-400 {
+  color: var(--kp-muted) !important;
+}
+
+.text-orange-400,
+.text-orange-500,
+.text-orange-600,
+.text-amber-500,
+.text-amber-600 {
+  color: var(--kp-olive-deep) !important;
+}
+
+.border-slate-200,
+.border-slate-300,
+.border-slate-100 {
+  border-color: var(--kp-rule) !important;
+}
+
+.border-orange-400,
+.border-orange-500,
+.border-orange-600 {
+  border-color: var(--kp-olive-deep) !important;
+}
+
+.rounded-xl,
+.rounded-2xl {
+  border-radius: 24px;
+}
+
+.shadow-sm,
+.shadow-lg,
+.shadow-2xl {
+  box-shadow: var(--kp-shadow-md);
+}
+
+[class*="from-amber-"],
+[class*="from-orange-"] {
+  background-image: linear-gradient(135deg, rgb(220 236 182 / 52%), rgb(255 255 255 / 96%) 58%, rgb(241 245 229 / 82%)) !important;
+}
+
+/* Shared layout polish: one strong surface, restrained borders, clear hierarchy. */
+header.sticky {
+  background: rgb(247 248 245 / 88%) !important;
+  border-bottom-color: rgb(220 229 223 / 75%) !important;
+  backdrop-filter: blur(18px);
+}
+
+header.sticky .bg-slate-900 {
+  background: var(--kp-olive) !important;
+  color: var(--kp-ink) !important;
+  box-shadow: 3px 3px 0 var(--kp-ink);
+}
+
+header.sticky button {
+  color: var(--kp-ink);
+}
+
+header.sticky button:hover {
+  background: var(--kp-paper-deep) !important;
+}
+
+/* Directory hero */
+.min-h-screen > .bg-slate-900,
+.min-h-screen > div.bg-slate-900,
+main > .bg-slate-900,
+main > div.bg-slate-900 {
+  background:
+    radial-gradient(circle at 88% 20%, rgb(220 236 182 / 28%), transparent 22rem),
+    linear-gradient(135deg, #293328 0%, #3b4937 58%, #65784e 100%) !important;
+  border: 0 !important;
+}
+
+.min-h-screen > .bg-slate-900 h1,
+.min-h-screen > div.bg-slate-900 h1,
+main > .bg-slate-900 h1,
+main > div.bg-slate-900 h1 {
+  letter-spacing: -0.045em;
+}
+
+.min-h-screen > .bg-slate-900 .border-t,
+.min-h-screen > div.bg-slate-900 .border-t,
+main > .bg-slate-900 .border-t,
+main > div.bg-slate-900 .border-t {
+  border-color: rgb(220 236 182 / 42%) !important;
+}
+
+/* Search/filter panel */
+main > .bg-white.rounded-xl,
+main > div > .bg-white.rounded-xl {
+  border-color: var(--kp-rule) !important;
+  box-shadow: var(--kp-shadow-md);
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+  background: var(--kp-paper) !important;
+  border-color: var(--kp-rule) !important;
+  border-radius: 12px !important;
+}
+
+select:focus,
+input:focus {
+  border-color: var(--kp-olive-deep) !important;
+  box-shadow: 0 0 0 3px rgb(220 236 182 / 42%) !important;
+}
+
+/* Worker cards */
+main .grid > .bg-white.rounded-xl,
+main .grid > [class*="bg-gradient"] {
+  border-color: var(--kp-rule) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--kp-shadow-md) !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+main .grid > .bg-white.rounded-xl:hover,
+main .grid > [class*="bg-gradient"]:hover {
+  border-color: var(--kp-olive-deep) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgb(23 36 31 / 12%) !important;
+}
+
+main .grid > .bg-white.rounded-xl .bg-slate-900,
+main .grid > [class*="bg-gradient"] .bg-amber-700 {
+  background: var(--kp-olive) !important;
+  color: var(--kp-ink) !important;
+  box-shadow: 3px 3px 0 var(--kp-ink);
+}
+
+main .grid > .bg-white.rounded-xl .bg-slate-50,
+main .grid > [class*="bg-gradient"] .bg-white {
+  background: var(--kp-paper) !important;
+  border-color: var(--kp-rule) !important;
+  box-shadow: none !important;
+}
+
+main .grid > [class*="bg-gradient"] {
+  background: linear-gradient(145deg, rgb(246 250 232 / 94%), #fff 58%, rgb(241 245 229 / 76%)) !important;
+}
+
+/* Lime action language */
+main button.bg-slate-900,
+main button[class*="bg-orange-"] {
+  border-color: var(--kp-ink) !important;
+  box-shadow: 0 4px 0 rgb(23 36 31 / 16%);
+}
+
+main button.bg-slate-900:hover,
+main button[class*="bg-orange-"]:hover {
+  background: var(--kp-olive) !important;
+  color: var(--kp-ink) !important;
+  transform: translateY(-1px);
+}
+
+/* Reduce visual noise from nested utility surfaces. */
+main .border-slate-100,
+main .border-slate-200 {
+  border-color: var(--kp-rule) !important;
+}
+
+footer {
+  background: rgb(255 255 255 / 75%) !important;
+  border-color: var(--kp-rule) !important;
+}
+
+/* Compact worker summaries; the profile modal owns the full detail view. */
+.worker-summary-card {
+  min-height: 86px;
+  box-shadow: var(--kp-shadow-sm) !important;
+  border-radius: 18px !important;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.worker-summary-card:hover,
+.worker-summary-card:focus-visible {
+  border-color: var(--kp-olive-deep) !important;
+  box-shadow: var(--kp-shadow-md) !important;
+  transform: translateY(-2px);
+}
+
+.worker-summary-card-new {
+  background: linear-gradient(135deg, rgb(246 250 232 / 94%), #fff 60%) !important;
+  border-color: rgb(130 148 93 / 34%) !important;
+}
+
+/* Section navigation */
+.bg-white.border-b.border-slate-200 {
+  background: rgb(255 255 255 / 72%) !important;
+  border-color: var(--kp-rule) !important;
+}
+
+.bg-white.border-b.border-slate-200 button[aria-current="page"] {
+  border-color: var(--kp-olive-deep) !important;
+  color: var(--kp-ink) !important;
+}
+
+/* Compact the first viewport so the search experience starts immediately. */
+.min-h-screen > .bg-slate-900 {
+  padding-top: 42px !important;
+  padding-bottom: 36px !important;
+}
+
+.min-h-screen > .bg-slate-900 > div {
+  padding-top: 34px !important;
+  padding-bottom: 30px !important;
+}
+
+.min-h-screen > .bg-slate-900 h1 {
+  max-width: 900px;
+  font-size: clamp(2rem, 4vw, 3.15rem) !important;
+  line-height: 1.02 !important;
+}
+
+.min-h-screen > .bg-slate-900 p {
+  max-width: 760px;
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+}
+
+.min-h-screen > .bg-slate-900 .grid {
+  display: none !important;
+}
+
+.min-h-screen > main.-mt-4 {
+  margin-top: 0 !important;
+  padding-top: 28px;
+}
+
+.min-h-screen > main.-mt-4 > .bg-white.rounded-xl {
+  padding: 24px !important;
+  border-radius: 20px !important;
+}
+
+.min-h-screen > main.-mt-4 > .bg-white.rounded-xl > div:first-child {
+  padding-bottom: 18px !important;
+}
+
+.min-h-screen > main.-mt-4 > .bg-white.rounded-xl .grid {
+  gap: 12px !important;
+}
+
+.min-h-screen > main.-mt-4 > .mt-8 {
+  margin-top: 34px !important;
+}
+
+.min-h-screen > main.-mt-4 > .grid {
+  gap: 18px !important;
+}
+
+/* Keep cards informative without making every line compete for attention. */
+.min-h-screen > main.-mt-4 > .grid > div {
+  padding: 20px !important;
+}
+
+.min-h-screen > main.-mt-4 > .grid > div .bg-slate-50,
+.min-h-screen > main.-mt-4 > .grid > div .bg-white {
+  border-radius: 14px !important;
+}
+
+.min-h-screen > main.-mt-4 > .grid > div .uppercase {
+  letter-spacing: .08em !important;
+}
+
+@media (max-width: 768px) {
+  .min-h-screen > .bg-slate-900 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .min-h-screen > .bg-slate-900 > div {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .min-h-screen > .bg-slate-900 .grid {
+    gap: 14px !important;
+  }
+
+  .min-h-screen > main.-mt-4 {
+    padding-top: 18px;
+  }
+}
